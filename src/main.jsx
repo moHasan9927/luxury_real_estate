@@ -5,10 +5,12 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home.jsx";
 import Update from "./page/Update.jsx";
-import Favourite from "./page/Favourites.jsx";
 import Cart from "./page/Cart.jsx";
 import Favourites from "./page/Favourites.jsx";
 import ErrorPage from "./page/ErrorPage.jsx";
+import ThemeContextProvider from "./Context/ThemeContextProvider.jsx";
+import EstateDetails from "./page/EstateDetails.jsx";
+import CartContextProvider from "./Context/CartContextProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("/luxury.json"),
+      },
+      {
+        path: "/estate/:id",
+        element: <EstateDetails />,
+        loader: () => fetch("/luxury.json"),
       },
       {
         path: "/update_profile",
@@ -37,7 +45,9 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <ThemeContextProvider>
+    <CartContextProvider>
+      <RouterProvider router={router} />
+    </CartContextProvider>
+  </ThemeContextProvider>,
 );
