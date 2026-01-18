@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Oceanfront Grand Villa",
+    "segment_name": "Luxury Villa",
+    "description": "An exclusive oceanfront villa offering panoramic sea views, private beach access, and world-class luxury amenities.",
+    "price": "$4,500,000",
+    "status": "sale",
+    "area": "5200 sq ft",
+    "location": "Malibu, California, USA",
+    "image": "https://i.ibb.co/example1.jpg",
+    "facilities": ["Private Pool", "Home Theater", "Gym", "Beach Access"]
+  },
+  {
+    "id": 2,
+    "estate_title": "Skyline Penthouse Suite",
+    "segment_name": "Luxury Penthouse",
+    "description": "A modern penthouse located in the heart of the city with breathtaking skyline views and premium interior design.",
+    "price": "$18,000 / month",
+    "status": "rent",
+    "area": "3500 sq ft",
+    "location": "Dubai Marina, UAE",
+    "image": "https://i.ibb.co/example2.jpg",
+    "facilities": [
+      "Infinity Pool",
+      "Private Elevator",
+      "Concierge",
+      "Smart Home"
+    ]
+  },
+  {
+    "id": 3,
+    "estate_title": "Royal Hills Mansion",
+    "segment_name": "Luxury Mansion",
+    "description": "A royal-style mansion featuring classical architecture, landscaped gardens, and ultimate privacy.",
+    "price": "$9,200,000",
+    "status": "sale",
+    "area": "9800 sq ft",
+    "location": "Beverly Hills, California, USA",
+    "image": "https://i.ibb.co/example3.jpg",
+    "facilities": [
+      "Wine Cellar",
+      "Private Cinema",
+      "Guest House",
+      "Security System"
+    ]
+  },
+  {
+    "id": 4,
+    "estate_title": "Island Escape Resort",
+    "segment_name": "Private Island",
+    "description": "A once-in-a-lifetime opportunity to own a private island resort with luxury villas and pristine natural beauty.",
+    "price": "$15,000,000",
+    "status": "sale",
+    "area": "15000 sq ft",
+    "location": "Phuket, Thailand",
+    "image": "https://i.ibb.co/example4.jpg",
+    "facilities": ["Private Dock", "Helipad", "Spa", "Infinity Pool"]
+  },
+  {
+    "id": 5,
+    "estate_title": "Elite City Residence",
+    "segment_name": "Luxury Apartment",
+    "description": "A premium city residence designed for elite living with modern architecture and exclusive services.",
+    "price": "$12,500 / month",
+    "status": "rent",
+    "area": "2800 sq ft",
+    "location": "Monaco",
+    "image": "https://i.ibb.co/example5.jpg",
+    "facilities": [
+      "24/7 Concierge",
+      "Valet Parking",
+      "Private Balcony",
+      "Fitness Center"
+    ]
+  },
+  {
+    "id": 6,
+    "estate_title": "Palm Crest Beach House",
+    "segment_name": "Beachfront Property",
+    "description": "A luxurious beachfront home featuring open spaces, ocean breezes, and contemporary coastal design.",
+    "price": "$6,800,000",
+    "status": "sale",
+    "area": "6400 sq ft",
+    "location": "Palm Jumeirah, Dubai",
+    "image": "https://i.ibb.co/example6.jpg",
+    "facilities": [
+      "Private Beach",
+      "Infinity Pool",
+      "Outdoor Lounge",
+      "Smart Security"
+    ]
+  },
+  {
+    "id": 7,
+    "estate_title": "Alpine Luxury Chalet",
+    "segment_name": "Luxury Chalet",
+    "description": "A premium alpine chalet offering breathtaking mountain views and a serene retreat with modern comforts.",
+    "price": "$22,000 / month",
+    "status": "rent",
+    "area": "4200 sq ft",
+    "location": "Zermatt, Switzerland",
+    "image": "https://i.ibb.co/example7.jpg",
+    "facilities": ["Fireplace", "Sauna", "Ski Room", "Private Terrace"]
+  },
+  {
+    "id": 8,
+    "estate_title": "Golden Bay Waterfront Estate",
+    "segment_name": "Waterfront Estate",
+    "description": "A stunning waterfront estate designed for luxury living with seamless indoor-outdoor spaces.",
+    "price": "$11,500,000",
+    "status": "sale",
+    "area": "8900 sq ft",
+    "location": "Sydney Harbour, Australia",
+    "image": "https://i.ibb.co/example8.jpg",
+    "facilities": [
+      "Private Dock",
+      "Infinity Pool",
+      "Outdoor Kitchen",
+      "Home Automation"
+    ]
+  },
+  {
+    "id": 9,
+    "estate_title": "Metropolitan Sky Residence",
+    "segment_name": "Luxury High-Rise",
+    "description": "An ultra-modern high-rise residence offering panoramic city views and five-star lifestyle services.",
+    "price": "$16,000 / month",
+    "status": "rent",
+    "area": "3100 sq ft",
+    "location": "New York City, USA",
+    "image": "https://i.ibb.co/example9.jpg",
+    "facilities": [
+      "Rooftop Lounge",
+      "Private Gym",
+      "Concierge",
+      "Floor-to-Ceiling Windows"
+    ]
+  }
+]
