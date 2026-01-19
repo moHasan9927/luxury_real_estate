@@ -11,6 +11,10 @@ import ErrorPage from "./page/ErrorPage.jsx";
 import ThemeContextProvider from "./Context/ThemeContextProvider.jsx";
 import EstateDetails from "./page/EstateDetails.jsx";
 import CartContextProvider from "./Context/CartContextProvider.jsx";
+import Login from "./page/Login.jsx";
+import Register from "./page/Register.jsx";
+import AuthContextProvider from "./Authentication/AuthContextProvider.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,12 +37,20 @@ const router = createBrowserRouter([
         element: <Update />,
       },
       {
-        path: "/favourites",
-        element: <Favourites />,
+        path: "/cart",
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/cart",
-        element: <Cart />,
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
@@ -46,8 +58,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <ThemeContextProvider>
-    <CartContextProvider>
-      <RouterProvider router={router} />
-    </CartContextProvider>
+    <AuthContextProvider>
+      <CartContextProvider>
+        <RouterProvider router={router} />
+      </CartContextProvider>
+    </AuthContextProvider>
   </ThemeContextProvider>,
 );

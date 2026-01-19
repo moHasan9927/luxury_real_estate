@@ -17,7 +17,7 @@ const EstateDetails = () => {
       Swal.fire({
         icon: "warning",
         title: "Already Added",
-        text: "This property is already in your cart.",
+        text: "This property is already in your Favourites.",
         confirmButtonColor: "#D4AF37",
       });
       return;
@@ -27,8 +27,8 @@ const EstateDetails = () => {
 
     Swal.fire({
       icon: "success",
-      title: "Added to Cart",
-      text: "The property has been added to your cart successfully.",
+      title: "Added to Favourites",
+      text: "The property has been added to your Favourites successfully.",
       confirmButtonColor: "#D4AF37",
     });
   };
@@ -103,7 +103,7 @@ const EstateDetails = () => {
             onClick={() => handleAddCart(estate)}
             className="mt-6 w-full bg-luxury-gold text-luxury-bg py-3 rounded-lg font-semibold cursor-pointer hover:scale-105 active:scale-100 transition-transform duration-200"
           >
-            Add To Cart
+            Add To Favourites
           </button>
         </div>
       </div>

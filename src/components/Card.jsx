@@ -1,9 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ card }) => {
   const { id, estate_title, price, status, area, location, image } = card;
-
   return (
     <div className="bg-luxury-card rounded-lg lg:rounded-2xl overflow-hidden shadow-lg">
       <div className="w-full">
