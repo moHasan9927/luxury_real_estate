@@ -1,15 +1,29 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../Authentication/Authcontext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
+import auth from "../Authentication/firebase.console";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [photo, setPhoto] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
+  const [registerError, setRegisterError] = useState("");
+  const navigate = useNavigate();
   const { emailRegister, setUser, user } = useContext(AuthContext);
+  const firebaseErrors = {
+    "auth/email-already-in-use": "Account already exists",
+    "auth/invalid-email": "Invalid email format",
+    "auth/weak-password": "Password too weak",
+    "auth/user-not-found": "User not found",
+    "auth/wrong-password": "Incorrect password",
+    "auth/too-many-requests": "Too many attempts, try again later",
+  };
 
   const handleShowPass = () => {
     setShowPass(prev => !prev);
@@ -21,12 +35,23 @@ const Register = () => {
     emailRegister(email, pass)
       .then(userCredential => {
         const result = userCredential.user;
-        setUser(result);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photo,
+        });
+        setUser({ ...result, displayName: name, photoURL: photo });
+        Swal.fire({
+          icon: "success",
+          title: "Logged In",
+          text: "Login successful",
+          confirmButtonColor: "#D4AF37",
+        }).then(() => {
+          navigate("/");
+        });
       })
       .catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        const message = firebaseErrors[error.code] || "Something went wrong";
+        setRegisterError(message);
       });
     console.log(name);
     console.log(email);
@@ -35,6 +60,7 @@ const Register = () => {
     setName("");
     setEmail("");
     setPass("");
+    setPhoto("");
     setIsCheck(false);
   };
 
@@ -56,6 +82,18 @@ const Register = () => {
               onChange={e => setName(e.target.value)}
               type="text"
               placeholder="Your name"
+              className="w-full px-4 py-3 rounded-lg bg-transparent border border-luxury-gold/30 text-luxury-text focus:outline-none focus:border-luxury-gold"
+            />
+          </div>
+          <div>
+            <label className="block text-sm text-luxury-muted mb-1">
+              Photo URL
+            </label>
+            <input
+              value={photo}
+              onChange={e => setPhoto(e.target.value)}
+              type="text"
+              placeholder="Your Photo URL"
               className="w-full px-4 py-3 rounded-lg bg-transparent border border-luxury-gold/30 text-luxury-text focus:outline-none focus:border-luxury-gold"
             />
           </div>
@@ -99,6 +137,7 @@ const Register = () => {
           {/* Terms & Conditions */}
           <div className="flex items-start gap-2">
             <input
+              required
               checked={isCheck}
               onChange={e => setIsCheck(e.target.checked)}
               type="checkbox"
@@ -131,6 +170,9 @@ const Register = () => {
           <Link to="/login" className="text-luxury-gold cursor-pointer">
             Log In
           </Link>
+        </p>
+        <p className="text-center font-semibold text-red-600">
+          {registerError}
         </p>
       </div>
     </div>

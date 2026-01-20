@@ -109,9 +109,17 @@ const Navbar = () => {
           {theme === "light" ? <IoSunny /> : <IoMoon />}
         </div>
 
-        <div className="border-2 border-luxury-gold bg-luxury-gold text-luxury-bg p-2 rounded-full font-bold ">
-          <IoPersonOutline />
-        </div>
+        {user?.photoURL ? (
+          <img
+            className="h-10 w-10 rounded-full object-cover "
+            src={user.photoURL}
+            alt="Profile"
+          />
+        ) : (
+          <div className="h-10 w-10 flex items-center justify-center rounded-full border-2 border-luxury-gold bg-luxury-gold text-luxury-bg font-bold">
+            <IoPersonOutline />
+          </div>
+        )}
 
         {user ? (
           <Link

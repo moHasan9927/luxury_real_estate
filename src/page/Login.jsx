@@ -2,27 +2,46 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import AuthContext from "../Authentication/Authcontext";
+import Swal from "sweetalert2";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [showPass, setShowPass] = useState(false);
   const { emailLogin, setUser, user } = useContext(AuthContext);
+  const [loginErrors, setLoginErrors] = useState("");
   console.log(user);
 
+  const firebaseLoginErrors = {
+    "auth/user-not-found": "User not found",
+    "auth/wrong-password": "Incorrect password",
+    "auth/invalid-email": "Invalid email format",
+    "auth/invalid-credential": "Invalid login credentials",
+    "auth/user-disabled": "This account has been disabled",
+    "auth/too-many-requests": "Too many attempts, try again later",
+    "auth/network-request-failed":
+      "Network error, please check your connection",
+  };
   const handleSubmit = e => {
     e.preventDefault();
+    setLoginErrors("");
     emailLogin(email, pass)
       .then(userCredential => {
         // Signed in
         const result = userCredential.user;
         setUser(result);
-        navigate("/");
+        Swal.fire({
+          icon: "success",
+          title: "Logged In",
+          text: "Login successful",
+          confirmButtonColor: "#D4AF37",
+        }).then(() => {
+          navigate("/");
+        });
       })
       .catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        const message = firebaseLoginErrors[error.message] || "Login failed";
+        setLoginErrors(message);
       });
     setEmail("");
     setPass("");
@@ -44,6 +63,7 @@ const Login = () => {
               Email
             </label>
             <input
+              required
               value={email}
               onChange={e => setEmail(e.target.value)}
               type="email"
@@ -58,6 +78,7 @@ const Login = () => {
             </label>
             <div className="relative flex justify-between items-center">
               <input
+                required
                 value={pass}
                 onChange={e => setPass(e.target.value)}
                 type={showPass ? "text" : "password"}
@@ -95,6 +116,11 @@ const Login = () => {
             Register
           </Link>
         </p>
+        {loginErrors && (
+          <p className="text-center font-semibold text-red-600">
+            {loginErrors}
+          </p>
+        )}
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import Card from "../components/Card";
 
 const Home = () => {
   const cards = useLoaderData();
-  console.log(cards);
 
   return (
     <div className=" p-3 lg:p-6 ">
