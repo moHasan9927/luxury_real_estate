@@ -95,7 +95,7 @@ const Update = () => {
                 onChange={e => setPhoto(e.target.value)}
                 type="text"
                 className="w-full px-3 py-2 rounded-lg border border-luxury-muted bg-luxury-surface text-luxury-text focus:outline-none focus:ring-2 focus:ring-luxury-gold"
-                placeholder="https://example.com/photo.jpg"
+                placeholder="Please give a valid profile"
               />
             </div>
 

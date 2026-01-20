@@ -30,7 +30,7 @@ const Home = () => {
             alt=""
           />
 
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <p className="text-luxury-gold font-bold text-xs md:text-sm uppercase tracking-widest mb-2">
@@ -53,7 +53,7 @@ const Home = () => {
             alt=""
           />
 
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <p className="text-luxury-gold font-bold text-xs md:text-sm uppercase tracking-widest mb-2">
@@ -79,7 +79,7 @@ const Home = () => {
             alt=""
           />
 
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <p className="text-luxury-gold font-bold text-xs md:text-sm uppercase tracking-widest mb-2">
