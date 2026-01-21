@@ -6,7 +6,11 @@ import Swal from "sweetalert2";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   if (loading)
-    return <p className="h-screen justify-center items-center">Loading...</p>;
+    return (
+      <p className="h-screen justify-center items-center text-3xl">
+        Loading...
+      </p>
+    );
 
   if (!user) {
     Swal.fire({
